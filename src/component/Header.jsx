@@ -1,4 +1,26 @@
-export default function Header(){
+import { NavLink } from "react-router-dom";
+
+import { useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
+export default function Header() {
+    const searchNavigate = useNavigate();
+
+    const [search, setSearch] = useState(null);
+
+    const handleSearchInput = (e) => {
+        console.log(search);
+        setSearch(e.target.value);
+    }
+
+    const handleSearch = () => {
+        searchNavigate('/search');
+    }
+
+
+
+
     return (
         <header className="so-header" style={{
             display: 'flex',
@@ -11,22 +33,24 @@ export default function Header(){
             top: 0,
             zIndex: 1000
         }}>
-            <a href="/" style={{ display: 'flex', alignItems: 'center', marginRight: 16 }}>
+            <NavLink to="/" style={{ display: 'flex', alignItems: 'center', marginRight: 16 }}>
                 <img
                     src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=ac8d4b7f3c0e"
                     alt="StackOverflow Logo"
                     style={{ height: 32 }}
                 />
-            </a>
+            </NavLink>
             <nav style={{ display: 'flex', alignItems: 'center', gap: '16px', marginRight: 24 }}>
-                <a href="/" style={{ color: '#525960', textDecoration: 'none', fontWeight: 500 }}>Home</a>
-                <a href="/questions" style={{ color: '#525960', textDecoration: 'none', fontWeight: 500 }}>Questions</a>
-                <a href="/tags" style={{ color: '#525960', textDecoration: 'none', fontWeight: 500 }}>Tags</a>
-                <a href="/users" style={{ color: '#525960', textDecoration: 'none', fontWeight: 500 }}>Users</a>
+                <NavLink to="/" style={{ color: '#525960', textDecoration: 'none' }}>Home</NavLink>
+                <NavLink to="/questions" style={{ color: '#525960', textDecoration: 'none' }}>Questions</NavLink>
+                <NavLink to="/tags" style={{ color: '#525960', textDecoration: 'none' }}>Tags</NavLink>
+                <NavLink to="/users" style={{ color: '#525960', textDecoration: 'none' }}>Users</NavLink>
             </nav>
-            <form style={{ flex: 1, display: 'flex', alignItems: 'center', maxWidth: 600 }}>
+            <form onSubmit={handleSearch} style={{ flex: 1, display: 'flex', alignItems: 'center', maxWidth: 600 }}>
                 <input
+                    onChange={handleSearchInput}
                     type="text"
+                    name="query"
                     placeholder="Search..."
                     style={{
                         width: '100%',
@@ -39,7 +63,7 @@ export default function Header(){
                 />
             </form>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginLeft: 24 }}>
-                <a href="/login" style={{
+                <NavLink to="/login" style={{
                     color: '#39739d',
                     background: '#e1ecf4',
                     border: '1px solid #7aa7c7',
@@ -48,8 +72,8 @@ export default function Header(){
                     textDecoration: 'none',
                     fontWeight: 500,
                     fontSize: 13
-                }}>Log in</a>
-                <a href="/signup" style={{
+                }}>Log in</NavLink>
+                <NavLink to="/signup" style={{
                     color: '#fff',
                     background: '#0a95ff',
                     border: '1px solid #0a95ff',
@@ -58,7 +82,7 @@ export default function Header(){
                     textDecoration: 'none',
                     fontWeight: 500,
                     fontSize: 13
-                }}>Sign up</a>
+                }}>Sign up</NavLink>
             </div>
         </header>
     );
