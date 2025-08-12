@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import mockQuestions from '../../data/mockQuestions';
 import NotFound from '../../pages/NotFound';
 
@@ -6,9 +6,9 @@ export default function Discussion() {
     const [searchParams] = useSearchParams();
     const postId = searchParams.get('id');
 
+    var qnFound = null;
 
-
-    const questionContent =
+    var questionContent =
     {
         questionTitle: "",
         questionContent: "",
@@ -19,12 +19,15 @@ export default function Discussion() {
         (questionSet) => {
             if (questionSet.id == postId) {
 
+                qnFound = true;
                 questionContent.questionTitle = questionSet.question;
                 questionContent.questionContent = questionSet.content;
                 questionContent.questionTags = questionSet.tags;
             }
         }
     )
+
+    if (!qnFound) questionContent = null;
 
     return (
         questionContent ? <>
