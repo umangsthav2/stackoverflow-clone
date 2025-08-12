@@ -1,9 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 
-
-export default function Search(e) {
-
-
+export default function Search() {
     const [searchParams] = useSearchParams();
     const query = searchParams.get('query');
 
@@ -12,5 +9,4 @@ export default function Search(e) {
             SEARCH for {query}
         </span>
     );
-
 }

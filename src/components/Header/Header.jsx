@@ -41,10 +41,10 @@ export default function Header() {
                 />
             </NavLink>
             <nav style={{ display: 'flex', alignItems: 'center', gap: '16px', marginRight: 24 }}>
-                <NavLink to="/" style={{ color: '#525960', textDecoration: 'none' }}>Home</NavLink>
-                <NavLink to="/questions" style={{ color: '#525960', textDecoration: 'none' }}>Questions</NavLink>
-                <NavLink to="/tags" style={{ color: '#525960', textDecoration: 'none' }}>Tags</NavLink>
-                <NavLink to="/users" style={{ color: '#525960', textDecoration: 'none' }}>Users</NavLink>
+                <NavLink to="/" style={{ color: '#525960' }}>Home</NavLink>
+                <NavLink to="/questions" style={{ color: '#525960' }}>Questions</NavLink>
+                <NavLink to="/tags" style={{ color: '#525960' }}>Tags</NavLink>
+                <NavLink to="/users" style={{ color: '#525960' }}>Users</NavLink>
             </nav>
             <form onSubmit={handleSearch} style={{ flex: 1, display: 'flex', alignItems: 'center', maxWidth: 600 }}>
                 <input

@@ -1,16 +1,22 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 import './App.css';
-import Footer from './component/Footer';
-import Header from './component/Header';
-import Main from './component/Main/Main'
-import Search from './component/Search/Search'
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 
-;
-/* import Login from './component/Login';
-import Register from '.component/Register';
- */
+
+
+import Main from './components/Main/Main'
+
+
+
+import Search from './components/Search/Search'
+
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+
 
 
 
@@ -18,16 +24,19 @@ import Register from '.component/Register';
 
 
 function App() {
+
+  useEffect(() => { document.title = "Stack Overflow Clone" }, []);
+
   return (
     <>
       <BrowserRouter >
-        <Header  />
+        <Header />
         <Routes>
           <Route path='/' element={<Main />} />
-          <Route path='/search' element={<Search/>} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
-        {/* <Login/>
-    <Register/> */}
         <Footer />
       </BrowserRouter>
     </>
