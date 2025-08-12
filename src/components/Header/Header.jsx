@@ -19,7 +19,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="flex p-5 bg-[#f8f9fa] border-2 border-b-[#e3e6e8] items-center sticky top-0 flex-col gap-5 lg:flex-row lg:h-[56px]">
+            <header className="flex p-5 bg-[#f8f9fa] border-2 border-b-[#e3e6e8] items-center md:sticky top-0 flex-col gap-5 lg:flex-row lg:h-[56px]">
                 <NavLink to="/">
                     <img src={SOFullLogo} alt="StackOverflow Logo" className='min-h-[60px]' />
                 </NavLink>

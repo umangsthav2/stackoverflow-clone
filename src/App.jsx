@@ -17,6 +17,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 
 import NotFound from './pages/NotFound';
+import Discussion from './components/Discussion/Discussion';
 
 
 function App() {
@@ -27,8 +28,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/search' element={<Search />} />
-
-
+          <Route path='/discussion' element={<Discussion />} />
 
           <Route path='/questions' element={<>QUESTION PAGE</>} />
           <Route path='/tags' element={<>TAG PAGE</>} />
