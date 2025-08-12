@@ -19,50 +19,23 @@ export default function Header() {
 
     return (
         <>
-
-
-            {/* For MOBILES */}
-            <header className="sm:hidden flex flex-col p-5 sticky md:top-0 flex-row border-b-4 border-[#e3e6e8] items-center bg-[#f8f9fa]">
+            <header className="flex p-5 bg-[#f8f9fa] border-2 border-b-[#e3e6e8] items-center sticky top-0 flex-col gap-5 lg:flex-row lg:h-[56px]">
                 <NavLink to="/">
-                    <img src={SOFullLogo} alt="StackOverflow Logo" className='h-[50px]' />
+                    <img src={SOFullLogo} alt="StackOverflow Logo" className='min-h-[60px]' />
                 </NavLink>
-                <nav className='flex flex-wrap gap-5'>
-                    <NavLink to="/" >Home</NavLink>
-                    <NavLink to="/questions">Questions</NavLink>
-                    <NavLink to="/tags">Tags</NavLink>
-                    <NavLink to="/users">Users</NavLink>
+                <nav className='flex text-center sm:flex-row flex-col w-full sm:w-auto'>
+                    <NavLink className='p-3' to="/" >Home</NavLink>
+                    <NavLink className='p-3' to="/questions">Questions</NavLink>
+                    <NavLink className='p-3' to="/tags">Tags</NavLink>
+                    <NavLink className='p-3' to="/users">Users</NavLink>
                 </nav>
-                <form onSubmit={handleSearch} className='flex w-full p-5'>
+                <form onSubmit={handleSearch} className='text-center w-full flex-col md:flex-row gap-3 flex flex-row flex-nowrap justify-center'>
                     <input onChange={handleSearchInput} type="text" name="query" placeholder="Search..." className='w-full p-1 border-2 border-[#babfc4] rounded-sm text-[15px]' />
+                    <hr className='my-5' />
+                    <NavLink className=" shrink-0 text-[#39739d] text-[13px] bg-[#e1ecf4] border-[#7aa7c7] border-2 px-2 py-2 rounded-sm" to='/login'>Log In</NavLink>
+                    <NavLink to="/signup" className=' shrink-0 text-[#ffffff] text-[13px] bg-[#0a95ff] px-2 py-2 border-[#0a95ff] rounded-sm'>Sign Up</NavLink>
                 </form>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginLeft: 24 }}>
-                    <NavLink className="text-[#39739d] text-[13px] bg-[#e1ecf4] border-[#7aa7c7] border-2 px-2 py-2 rounded-sm" to='/login'>Log In</NavLink>
-                    <NavLink to="/signup" className='text-[#ffffff] text-[13px] bg-[#0a95ff] px-2 py-2 border-[#0a95ff] rounded-sm'>Sign Up</NavLink>
-                </div>
-            </header>
 
-
-
-
-
-
-            <header className="hidden sm:flex p-5 sticky h-[56px] md:top-0 flex-row border-b-4 border-[#e3e6e8] items-center bg-[#f8f9fa]">
-                <NavLink to="/">
-                    <img src={SOFullLogo} alt="StackOverflow Logo" className='h-[32px]' />
-                </NavLink>
-                <nav style={{ display: 'flex', alignItems: 'center', gap: '16px', marginRight: 24 }}>
-                    <NavLink to="/" >Home</NavLink>
-                    <NavLink to="/questions">Questions</NavLink>
-                    <NavLink to="/tags">Tags</NavLink>
-                    <NavLink to="/users">Users</NavLink>
-                </nav>
-                <form onSubmit={handleSearch} style={{ flex: 1, display: 'flex', alignItems: 'center', maxWidth: 600 }}>
-                    <input onChange={handleSearchInput} type="text" name="query" placeholder="Search..." className='w-full p-1 border-2 border-[#babfc4] rounded-sm text-[15px]' />
-                </form>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginLeft: 24 }}>
-                    <NavLink className="text-[#39739d] text-[13px] bg-[#e1ecf4] border-[#7aa7c7] border-2 px-2 py-2 rounded-sm" to='/login'>Log In</NavLink>
-                    <NavLink to="/signup" className='text-[#ffffff] text-[13px] bg-[#0a95ff] px-2 py-2 border-[#0a95ff] rounded-sm'>Sign Up</NavLink>
-                </div>
             </header>
         </>
     );

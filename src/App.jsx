@@ -19,10 +19,6 @@ import Register from './components/Register/Register';
 import NotFound from './pages/NotFound';
 
 
-
-
-
-
 function App() {
   return (
     <>

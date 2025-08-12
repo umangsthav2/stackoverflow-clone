@@ -2,10 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+*
+    {
+        /* border:1px solid red; */
+    }
+
+
+
+
  @layer utilities {
-      .active
-        {
-            @apply font-bold
-        }
+      .active{
+        @apply font-bold
+      }
 
     }
