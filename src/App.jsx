@@ -17,6 +17,7 @@ import Search from './components/Search/Search'
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 
+import NotFound from './pages/NotFound';
 
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path='/search' element={<Search />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>
