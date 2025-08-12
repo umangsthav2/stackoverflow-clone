@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
 
 
 import './App.css';
@@ -25,9 +24,6 @@ import NotFound from './pages/NotFound';
 
 
 function App() {
-
-  useEffect(() => { document.title = "Stack Overflow Clone" }, []);
-
   return (
     <>
       <BrowserRouter >
@@ -35,6 +31,12 @@ function App() {
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/search' element={<Search />} />
+
+
+
+          <Route path='/questions' element={<>QUESTION PAGE</>} />
+          <Route path='/tags' element={<>TAG PAGE</>} />
+          <Route path='/users' element={<>USERS PAGE</>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='*' element={<NotFound />} />
