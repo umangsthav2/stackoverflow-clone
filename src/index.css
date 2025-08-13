@@ -12,7 +12,7 @@
 
  @layer utilities {
       .active{
-        @apply font-bold
+       font-weight: bolder;
       }
 
     }

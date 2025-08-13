@@ -3,7 +3,6 @@ import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
 import SOMiniLogo from '../../assets/svg/SOMiniLogo.svg';
-
 import { Link } from "react-router-dom";
 
 

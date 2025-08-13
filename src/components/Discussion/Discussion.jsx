@@ -31,7 +31,7 @@ export default function Discussion() {
 
     return (
         questionContent ? <>
-            <div className="flex flex-col justify-center discussion-card p-5 border-2 m-5">
+            <div className="flex flex-col shadow-md rounded-lg justify-center discussion-card bg-[#f9f9f9] p-5 m-5">
                 <h1 className='mb-5 text-3xl font-bold'>{questionContent.questionTitle}</h1>
                 <p className=' text-justify mb-5 text-lg'>{questionContent.questionContent}</p>
                 <div className="tags flex gap-5">

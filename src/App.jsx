@@ -14,10 +14,10 @@ import Main from './components/Main/Main'
 import Search from './components/Search/Search'
 
 import Login from './components/Login/Login';
-import Register from './components/Register/Register';
 
 import NotFound from './pages/NotFound';
 import Discussion from './components/Discussion/Discussion';
+import Signup from './components/Signup/Signup';
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
           <Route path='/tags' element={<>TAG PAGE</>} />
           <Route path='/users' element={<>USERS PAGE</>} />
           <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
+          <Route path='/signup' element={<Signup />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
