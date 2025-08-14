@@ -1,23 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-import './App.css';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
-
-
-import Main from './components/Main/Main'
-
-
-
-import Search from './components/Search/Search'
-
-import Login from './components/Login/Login';
-
+import Home from './pages/Home';
+import Discussion from './pages/Discussion';
+import Users from './pages/Users';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Search from './pages/Search';
 import NotFound from './pages/NotFound';
-import Discussion from './components/Discussion/Discussion';
-import Signup from './components/Signup/Signup';
 
 
 function App() {
@@ -26,13 +19,13 @@ function App() {
       <BrowserRouter >
         <Header />
         <Routes>
-          <Route path='/' element={<Main />} />
+          <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/discussion' element={<Discussion />} />
 
           <Route path='/questions' element={<>QUESTION PAGE</>} />
           <Route path='/tags' element={<>TAG PAGE</>} />
-          <Route path='/users' element={<>USERS PAGE</>} />
+          <Route path='/users' element={<Users/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='*' element={<NotFound />} />

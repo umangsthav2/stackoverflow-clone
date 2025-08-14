@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
-import SOFullLogo from '../../assets/svg/SOFullLogo.svg';
+import SOFullLogo from '../assets/svg/SOFullLogo.svg';
 import { Link } from "react-router-dom";
 
 export default function Signup() {

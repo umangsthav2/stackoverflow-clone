@@ -1,4 +1,4 @@
-import SOFullLogo from '../../assets/svg/SOFullLogo.svg'
+import SOFullLogo from '../assets/svg/SOFullLogo.svg'
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 

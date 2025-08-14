@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
-import mockQuestions from '../../data/mockQuestions';
-import NotFound from '../../pages/NotFound';
+import mockQuestions from '../data/mockQuestions';
+import NotFound from '../pages/NotFound';
 
 export default function Discussion() {
     const [searchParams] = useSearchParams();
