@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from "react";
 import mockQuetion from "../data/mockQuestions";
-import QuestionCard from "../common/QuestionCard";
-import UserCard from "../common/UserCard";
+import QuestionCard from "../components/QuestionCard";
+import UserCard from "../components/UserCard";
 
 export default function Home() {
     const [questions, setQuestions] = useState([]);

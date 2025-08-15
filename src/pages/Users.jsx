@@ -1,5 +1,5 @@
 import mockUsers from "../data/mockUsers";
-import UserCard from "../common/UserCard";
+import UserCard from "../components/UserCard";
 
 export default function Users() {
     return (

@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Search from './pages/Search';
 import NotFound from './pages/NotFound';
+import UserProfile from './pages/UserProfile';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/discussion' element={<Discussion />} />
+          <Route path='/user' element={<UserProfile />} />
 
           <Route path='/questions' element={<>QUESTION PAGE</>} />
           <Route path='/tags' element={<>TAG PAGE</>} />
