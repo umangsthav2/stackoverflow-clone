@@ -15,7 +15,7 @@ export default function UserCard({ id, avatar, name, score, tags }) {
                     <span className="tag-container">
                         {
                             tags.map(
-                                (user_tags) => <span className="bg-blue-100 text-blue-800 mx-1 px-3 py-1 rounded-full text-sm">{user_tags}</span>
+                                (user_tags) => <span key={null} className="bg-blue-100 text-blue-800 mx-1 px-3 py-1 rounded-full text-sm">{user_tags}</span>
                             )
                         }
                     </span>

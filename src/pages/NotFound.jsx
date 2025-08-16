@@ -1,6 +1,7 @@
 import NotFoundGraphics from '../assets/svg/NotFound.svg';
 
 export default function NotFound() {
+    document.title = "Not Found | Stackoverflow Clone";
     return (
         <>
             <div className="404page flex flex-col justify-center h-[80vh] items-center">

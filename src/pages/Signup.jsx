@@ -6,7 +6,7 @@ import SOFullLogo from '../assets/svg/SOFullLogo.svg';
 import { Link } from "react-router-dom";
 
 export default function Signup() {
-
+    document.title = "Signup | Stackoverflow Clone";
     const [passwordMask, setPasswordMask] = useState(false);
     const [inputType, setInputType] = useState("password");
 

@@ -3,6 +3,7 @@ import mockQuestions from '../data/mockQuestions';
 import NotFound from '../pages/NotFound';
 
 export default function Discussion() {
+    document.title = "Discussion | Stackoverflow Clone";
     const [searchParams] = useSearchParams();
     const postId = searchParams.get('id');
 

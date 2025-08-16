@@ -8,14 +8,15 @@ import QuestionCard from '../components/QuestionCard';
 import NotFound from './NotFound';
 
 export default function UserProfile() {
+    document.title = "User Profile | Stackoverflow Clone";
     const [param] = useSearchParams();
     var userID = param.get('id');
 
     var userContent =
     {
-        id: 4,
+        id: null,
         avatar: null,
-        name: "Umang Shrestha",
+        name: null,
         score: 1,
         tags: ["Hadoop", "HDFS", "Big Data"]
     }
@@ -28,6 +29,7 @@ export default function UserProfile() {
                 userContent.id = user.id;
                 userContent.avatar = user.avatar;
                 userContent.name = user.name;
+                document.title = user.name + " | Stackoverflow Clone";
                 userContent.score = user.score;
                 userContent.tags = user.tags;
             }
@@ -39,7 +41,7 @@ export default function UserProfile() {
     return (
 
         userContent ? <>
-            <span className="flex flex-col bg-red-200 rounded-lg flex-wrap  p-2 m-2 gap-15 items-center justify-center">
+            <span className="flex flex-col rounded-lg flex-wrap  p-2 m-2 gap-15 items-center justify-center">
                 <span className="avatar-container shrink-0 h-60 rounded-lg overflow-hidden">
                     <img className="h-full" src={userContent.avatar} alt="" />
                 </span>
@@ -49,7 +51,7 @@ export default function UserProfile() {
                     <span className="tag-container">
                         {
                             (userContent.tags).map(
-                                (user_tags) => <span className="bg-blue-100 text-xl text-blue-800 mx-1 px-3 py-1 rounded-full text-sm">{user_tags}</span>
+                                (user_tags) => <span key={userContent.id} className="bg-blue-100 text-xl text-blue-800 mx-1 px-3 py-1 rounded-full text-sm">{user_tags}</span>
                             )
                         }
                     </span>
@@ -57,7 +59,7 @@ export default function UserProfile() {
             </span>
             {
                 mockQuestions.map(
-                    (question) => { return (<QuestionCard  {...question} />) }
+                    (question) => { return (<QuestionCard key={question.id}  {...question} />) }
                 )
             }
         </> : <NotFound />

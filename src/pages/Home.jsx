@@ -5,9 +5,9 @@ import QuestionCard from "../components/QuestionCard";
 import UserCard from "../components/UserCard";
 
 export default function Home() {
+    document.title = "Home | Stackoverflow Clone";
     const [questions, setQuestions] = useState([]);
     useEffect(() => {
-        document.title = "Home | Stackoverflow Clone";
         setQuestions(mockQuetion)
     }, [])
     return (

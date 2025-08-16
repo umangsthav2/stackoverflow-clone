@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+
 
 
 import Footer from './components/Footer';
@@ -18,6 +20,7 @@ function App() {
   return (
     <>
       <BrowserRouter >
+        <ToastContainer />
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -27,10 +30,11 @@ function App() {
 
           <Route path='/questions' element={<>QUESTION PAGE</>} />
           <Route path='/tags' element={<>TAG PAGE</>} />
-          <Route path='/users' element={<Users/>} />
+          <Route path='/users' element={<Users />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='*' element={<NotFound />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
