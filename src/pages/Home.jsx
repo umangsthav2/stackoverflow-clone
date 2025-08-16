@@ -1,6 +1,8 @@
 
 import { useEffect, useState } from "react";
+
 import mockQuetion from "../data/mockQuestions";
+
 import QuestionCard from "../components/QuestionCard";
 import UserCard from "../components/UserCard";
 

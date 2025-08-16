@@ -38,7 +38,7 @@ export default function Login() {
 
     }
 
-    toast.loading("Hello", toastProperties);
+    // toast.loading("Hello", toastProperties);
 
     const handlePasswordMask = () => {
         setPasswordMask(!passwordMask);

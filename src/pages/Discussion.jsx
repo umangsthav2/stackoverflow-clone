@@ -18,7 +18,7 @@ export default function Discussion() {
 
     mockQuestions.map(
         (questionSet) => {
-            if (questionSet.id == postId) {
+            if (questionSet.question_id == postId) {
 
                 qnFound = true;
                 questionContent.questionTitle = questionSet.question;
