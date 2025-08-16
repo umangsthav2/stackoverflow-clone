@@ -2,6 +2,8 @@
 
  import sampleAvatar from '../data/dataAssets/userAvatar/32.jpg'
  import sampleAvatar2 from '../data/dataAssets/userAvatar/58.jpg'
+// var sampleAvatar =null;
+// var sampleAvatar2 =null;
 
 const mockUsers =
   [
@@ -86,4 +88,6 @@ const mockUsers =
       questions:[]
     },
   ]
+
+  // console.log(mockUsers[1]);
 export default mockUsers;
