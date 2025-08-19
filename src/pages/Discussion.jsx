@@ -4,6 +4,7 @@ import mockQuestions from '../data/mockQuestions';
 import NotFound from '../pages/NotFound';
 
 import mockUsers from '../data/mockUsers';
+import mockComments from '../data/dataAssets/mockComments';
 
 
 export default function Discussion() {
@@ -65,64 +66,42 @@ export default function Discussion() {
                 </div>
                 <hr className='my-5' />
 
-                <div className="comment-container flex flex-col gap-5">
-
-                    <div className="comments">
-                        <div className='comments-panel flex flex-row gap-7'>
-                            <span>
-                                <img className='min-w-[30px]' src={mockUsers[1].avatar} alt="" />
-                            </span>
-
-                            <div className="comment-content p-3 bg-[#e9e9e9] rounded-md flex- flex-col gap-2">
-                                <div className="username"><Link className='text-blue-600' to='/user?id=1'>Umang Shrestha</Link></div>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="comments">
-                        <div className='comments-panel flex flex-row gap-7'>
-                            <span>
-                                <img className='min-w-[30px]' src={mockUsers[1].avatar} alt="" />
-                            </span>
-
-                            <div className="comment-content p-3 bg-[#e9e9e9] rounded-md flex- flex-col gap-2">
-                                <div className="username"><Link className='text-blue-600' to='/user?id=1'>Umang Shrestha</Link></div>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="comments">
-                        <div className='comments-panel flex flex-row gap-7'>
-                            <span>
-                                <img className='min-w-[30px]' src={mockUsers[1].avatar} alt="" />
-                            </span>
-
-                            <div className="comment-content p-3 bg-[#e9e9e9] rounded-md flex- flex-col gap-2">
-                                <div className="username"><Link className='text-blue-600' to='/user?id=1'>Umang Shrestha</Link></div>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit repudiandae aspernatur quas sequi voluptatem autem. Deserunt delectus eligendi cumque accusamus! Nemo eum eligendi officiis ad, aliquam consectetur ipsa repudiandae.
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
                 <div className="add-comment my-5">
                     <div className='comment-panel flex flex-row gap-7'>
                         <span>
                             <img className='w-[50px]' src={mockUsers[1].avatar} alt="" />
                         </span>
                         <form className='w-full' onSubmit={commentSubmit}>
-                            <input className='w-full p-3 border-2' type="text" name="" placeholder='Add a Comment...' id="" />
+                            <input className='w-full rounded-md p-3 border-2' type="text" name="" placeholder='Add a Comment...' id="" />
                         </form>
                     </div>
                 </div>
+
+                <div className="comment-container flex flex-col gap-5">
+                    {
+                        mockComments.map(
+                            (comment) => {
+                                return (
+                                    <div className="comments">
+                                        <div className='comments-panel flex items-center flex-row gap-3'>
+                                            <img className='rounded-xl h-[40px]' src={mockUsers[3].avatar} alt="" />
+                                            <div className="comment-content p-3 bg-[#e9e9e9] rounded-lg flex- flex-col gap-2">
+                                                <div className="username"><Link className='text-blue-600' to={`/user?id=${comment.commenter_id}`}>{`Commentor ID= ${comment.commenter_id}`}</Link></div>
+                                                {comment.comment_content}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+
+                        )
+                    }
+
+
+                </div>
+
+
             </div>
         </> : <NotFound />
     )
