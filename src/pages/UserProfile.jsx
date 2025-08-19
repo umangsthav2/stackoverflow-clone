@@ -6,6 +6,7 @@ import mockQuestions from '../data/mockQuestions';
 import QuestionCard from '../components/QuestionCard';
 
 import NotFound from './NotFound';
+import Tag from '../components/Tag';
 
 export default function UserProfile() {
     document.title = "User Profile | Stackoverflow Clone";
@@ -48,10 +49,10 @@ export default function UserProfile() {
                 <span className="detail-container flex flex-col gap-5 justify-center items-center p-3">
                     <h1 className="username text-4xl font-bold ">{userContent.name}</h1>
                     <h1 className="username text-2xl">{userContent.score}</h1>
-                    <span className="tag-container">
+                    <span className="tag-container flex flex-row gap-3">
                         {
                             (userContent.tags).map(
-                                (user_tags) => <span key={userContent.id} className="bg-blue-100 text-xl text-blue-800 mx-1 px-3 py-1 rounded-full text-sm">{user_tags}</span>
+                                (user_tags) => <Tag tagname={user_tags} key={userContent.id}/>
                             )
                         }
                     </span>

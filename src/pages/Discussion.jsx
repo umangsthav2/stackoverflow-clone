@@ -5,6 +5,7 @@ import NotFound from '../pages/NotFound';
 
 import mockUsers from '../data/mockUsers';
 import mockComments from '../data/dataAssets/mockComments';
+import Tag from '../components/Tag';
 
 
 export default function Discussion() {
@@ -61,7 +62,7 @@ export default function Discussion() {
                 <p className=' text-justify my-5 text-lg'>{questionContent.questionContent}</p>
                 <div className="tags flex gap-5">
                     {
-                        (questionContent.questionTags).map((tags) => { return <span key={tags} className=" flex flex-wrap bg-blue-100 min-w-[10px] w-auto text-blue-800 px-3 py-1 rounded-full text-sm" >{tags}</span> })
+                        (questionContent.questionTags).map((tag) => { return <Tag tagname={tag}/> })
                     }
                 </div>
                 <hr className='my-5' />
