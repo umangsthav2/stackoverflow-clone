@@ -6,16 +6,17 @@ import mockQuestions from '../data/mockQuestions';
 
 export default function Tags() {
 
+    document.title="Tags | Stackoverflow Clone";
     const [searchParams] = useSearchParams();
     const tagname = searchParams.get("tagname");
 
-    var questionWithTag = mockQuestions.filter(
+    const questionWithTag = mockQuestions.filter(
         (questionSet) => ((questionSet.tags).filter((tag) => tag == tagname).length >= 1)
     );
-
     return (
         <>
-        <div className='tag m-7 p-7 bg-red-200 text-4xl'>[ {tagname} ]</div>
+            <div className='tag m-7 p-7 font-bold text-4xl'>[ {tagname} ]
+            </div>
             {
                 questionWithTag.map(
                     (question) => {
@@ -23,6 +24,6 @@ export default function Tags() {
                     }
                 )
             }
-        </> 
+        </>
     );
 }

@@ -20,8 +20,8 @@ export default function Discussion() {
         questionTitle: "",
         questionContent: "",
         questionTags: [],
-        questionCreator: null
-
+        questionCreator: null,
+        questionComments: []
     }
 
     const commentSubmit = (e) => {
@@ -36,12 +36,12 @@ export default function Discussion() {
     mockQuestions.map(
         (questionSet) => {
             if (questionSet.question_id == postId) {
-
                 qnFound = true;
                 questionContent.questionTitle = questionSet.question;
                 questionContent.questionContent = questionSet.content;
                 questionContent.questionTags = questionSet.tags;
                 questionContent.questionCreator = questionSet.creator_id;
+                questionContent.questionComments = questionSet.comments;
             }
         }
     )
@@ -54,6 +54,13 @@ export default function Discussion() {
 
     if (!qnFound) questionContent = null;
 
+
+    var comments = mockComments.filter(
+        (comment) => ((questionContent.questionComments).filter(
+            (cID) => (cID == comment.comment_id)
+        ).length >= 1
+        )
+    )
     return (
         questionContent ? <>
             <div className="flex flex-col shadow-md rounded-lg justify-center discussion-card bg-[#f9f9f9] p-5 m-5">
@@ -62,11 +69,10 @@ export default function Discussion() {
                 <p className=' text-justify my-5 text-lg'>{questionContent.questionContent}</p>
                 <div className="tags flex gap-5">
                     {
-                        (questionContent.questionTags).map((tag) => { return <Tag tagname={tag}/> })
+                        (questionContent.questionTags).map((tag) => { return <Tag tagname={tag} /> })
                     }
                 </div>
                 <hr className='my-5' />
-
                 <div className="add-comment my-5">
                     <div className='comment-panel flex flex-row gap-7'>
                         <span>
@@ -77,33 +83,46 @@ export default function Discussion() {
                         </form>
                     </div>
                 </div>
-
                 <div className="comment-container flex flex-col gap-5">
                     {
-                        mockComments.map(
+                        comments.map(
                             (comment) => {
                                 return (
-                                    <div className="comments">
-                                        <div className='comments-panel flex items-center flex-row gap-3'>
-                                            <img className='rounded-xl h-[40px]' src={mockUsers[3].avatar} alt="" />
+                                    <>
+                                        <div div className='comments-panel flex items-center flex-row gap-3' >
+
+
+                                            <img className='rounded-xl h-[40px]'
+                                                src={
+                                                    (mockUsers.filter(
+                                                        (user) => (user.id == comment.commenter_id)
+                                                    )[0].avatar
+                                                    )
+                                                }
+                                                alt=""
+                                            />
                                             <div className="comment-content p-3 bg-[#e9e9e9] rounded-lg flex- flex-col gap-2">
-                                                <div className="username"><Link className='text-blue-600' to={`/user?id=${comment.commenter_id}`}>{`Commentor ID= ${comment.commenter_id}`}</Link></div>
+                                                <div className="username">
+                                                    <Link className='text-blue-600 font-bold'
+                                                        to={`/user?id=${comment.commenter_id}`}>
+                                                        {
+                                                            (mockUsers.filter(
+                                                                (user) => (user.id == comment.commenter_id)
+                                                            )[0].name
+                                                            )
+                                                        }
+                                                    </Link>
+                                                </div>
                                                 {comment.comment_content}
                                             </div>
                                         </div>
-                                    </div>
-                                )
+                                    </>
+                                );
                             }
-
-
                         )
                     }
-
-
                 </div>
-
-
-            </div>
+            </div >
         </> : <NotFound />
     )
 }
