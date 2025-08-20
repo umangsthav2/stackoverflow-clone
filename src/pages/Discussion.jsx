@@ -33,6 +33,15 @@ export default function Discussion() {
         name: null
     }
 
+
+
+    const question = mockQuestions.filter(
+        (questionSet) => questionSet.question_id == postId)
+
+
+
+
+
     mockQuestions.map(
         (questionSet) => {
             if (questionSet.question_id == postId) {
@@ -52,15 +61,14 @@ export default function Discussion() {
         }
     );
 
-    if (!qnFound) questionContent = null;
-
-
     var comments = mockComments.filter(
         (comment) => ((questionContent.questionComments).filter(
             (cID) => (cID == comment.comment_id)
         ).length >= 1
         )
     )
+
+    if (!qnFound) questionContent = null;
     return (
         questionContent ? <>
             <div className="flex flex-col shadow-md rounded-lg justify-center discussion-card bg-[#f9f9f9] p-5 m-5">
