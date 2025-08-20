@@ -22,7 +22,7 @@ const mockQuestions =
   },
 
   {
-    question_id: 5,
+    question_id: 2,
     question: "What is the role of NameNode in HDFS?",
     creator: "Emily Davis",
     creator_id:4,

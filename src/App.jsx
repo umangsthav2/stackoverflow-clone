@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 import Search from './pages/Search';
 import NotFound from './pages/NotFound';
 import UserProfile from './pages/UserProfile';
+import Tags from './pages/Tags';
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
           <Route path='/user' element={<UserProfile />} />
 
           <Route path='/questions' element={<>QUESTION PAGE</>} />
-          <Route path='/tags' element={<>TAG PAGE</>} />
+          <Route path='/tags' element={<Tags/>} />
           <Route path='/users' element={<Users />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
