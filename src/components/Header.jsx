@@ -9,7 +9,6 @@ export default function Header() {
     const [search, setSearch] = useState(null);
 
     const handleSearchInput = (e) => {
-        console.log(search);
         setSearch(e.target.value);
     }
 

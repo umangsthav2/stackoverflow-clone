@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import mockUsers from '../data/mockUsers';
 import mockQuestions from '../data/mockQuestions';
 
+
 import QuestionCard from '../components/QuestionCard';
 
 import NotFound from './NotFound';
@@ -11,58 +12,56 @@ import Tag from '../components/Tag';
 export default function UserProfile() {
     document.title = "User Profile | Stackoverflow Clone";
     const [param] = useSearchParams();
-    var userID = param.get('id');
+    const userID = param.get('id');
 
-    var userContent =
-    {
-        id: null,
-        avatar: null,
-        name: null,
-        score: 1,
-        tags: ["Hadoop", "HDFS", "Big Data"]
-    }
+
     var userFound = false;
 
-    mockUsers.map(
-        (user) => {
-            if (user.id == userID) {
-                userFound = true;
-                userContent.id = user.id;
-                userContent.avatar = user.avatar;
-                userContent.name = user.name;
-                document.title = user.name + " | Stackoverflow Clone";
-                userContent.score = user.score;
-                userContent.tags = user.tags;
-            }
-        }
-    )
+    var userContent = mockUsers.filter(
+        (user) => (user.id == userID)
+    );
 
-    if (!userFound) userContent = null;
-
+    document.title = userContent.name + " | Stackoverflow Clone";
     return (
-
-        userContent ? <>
-            <span className="flex flex-col rounded-lg flex-wrap  p-2 m-2 gap-15 items-center justify-center">
-                <span className="avatar-container shrink-0 h-60 rounded-lg overflow-hidden">
-                    <img className="h-full" src={userContent.avatar} alt="" />
-                </span>
-                <span className="detail-container flex flex-col gap-5 justify-center items-center p-3">
-                    <h1 className="username text-4xl font-bold ">{userContent.name}</h1>
-                    <h1 className="username text-2xl">{userContent.score}</h1>
-                    <span className="tag-container flex flex-row gap-3">
-                        {
-                            (userContent.tags).map(
-                                (user_tags) => <Tag tagname={user_tags} key={userContent.id}/>
-                            )
+        (userContent.length >= 1) ?
+            <>
+                {
+                    userContent.map(
+                        (userData) => {
+                            return (
+                                <>
+                                    <span className="flex flex-col rounded-lg flex-wrap  p-2 m-2 gap-15 items-center justify-center">
+                                        <span className="avatar-container shrink-0 h-60 rounded-lg overflow-hidden">
+                                            <img className="h-full" src={userData.avatar} alt="" />
+                                        </span>
+                                        <span className="detail-container flex flex-col gap-5 justify-center items-center p-3">
+                                            <h1 className="username text-4xl font-bold ">{userData.name}</h1>
+                                            <h1 className="username text-2xl">{userData.score}</h1>
+                                            <span className="tag-container flex flex-row gap-3">
+                                                {
+                                                    (userData.tags).map(
+                                                        (user_tags) => <Tag tagname={user_tags} key={userData.id} />
+                                                    )
+                                                }
+                                            </span>
+                                        </span>
+                                    </span>
+                                    {
+                                        (
+                                            mockQuestions.filter(
+                                                (question) => ((userData.questions).filter((userQuestion) => question.question_id == userQuestion).length >= 1)
+                                            )
+                                        ).map((questionData) => { return (<QuestionCard {...questionData}></QuestionCard>) })
+                                    }
+                                </>
+                            );
                         }
-                    </span>
-                </span>
-            </span>
-            {
-                mockQuestions.map(
-                    (question) => { return (<QuestionCard key={question.id}  {...question} />) }
-                )
-            }
-        </> : <NotFound />
-    )
+
+
+                    )
+                }
+
+
+
+            </> : <NotFound />)
 }
