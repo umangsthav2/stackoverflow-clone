@@ -15,6 +15,7 @@ import Search from './pages/Search';
 import NotFound from './pages/NotFound';
 import UserProfile from './pages/UserProfile';
 import Tags from './pages/Tags';
+import NewPost from './pages/NewPost';
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
           <Route path='/discussion' element={<Discussion />} />
           <Route path='/user' element={<UserProfile />} />
 
-          <Route path='/questions' element={<>QUESTION PAGE</>} />
+          <Route path='/post/new' element={<NewPost/>} />
           <Route path='/tags' element={<Tags/>} />
           <Route path='/users' element={<Users />} />
           <Route path='/login' element={<Login />} />
