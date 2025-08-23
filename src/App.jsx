@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <BrowserRouter >
-        <ToastContainer />
+        <ToastContainer/>
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />

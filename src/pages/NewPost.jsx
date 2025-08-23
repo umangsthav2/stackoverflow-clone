@@ -1,11 +1,8 @@
 import { useState } from "react";
-// Removed: import { IoCloseSharp } from "react-icons/io5"; // Assuming you have react-icons installed
-
 export default function NewPost() {
     const [question, setQuestion] = useState("");
     const [description, setDescription] = useState("");
-    // inputLimit state is not used in the current component, consider removing if not needed.
-    // const [inputLimit, setinputLimit] = useState('');
+
     const [qWordCount, setQWordCount] = useState(0);
     const [tagInput, setTagInput] = useState(""); // State for the tag input field
 
@@ -15,10 +12,9 @@ export default function NewPost() {
     // Regular expression to match word characters globally
     const wordCountR = /\b\w+\b/g; // Changed regex to count actual words, not just characters
 
-    // Handler for the question input field
     const handleQuestion = (e) => {
         const inputValue = e.target.value;
-        setQuestion(inputValue); // Update the question state with the new input value
+        setQuestion(inputValue);
 
         // *** IMPORTANT FIX START ***
         // Use the inputValue directly for matching to ensure the latest value is used.
@@ -28,17 +24,14 @@ export default function NewPost() {
         // *** IMPORTANT FIX END ***
     };
 
-    // Handler for the description textarea
     const handleDescription = (e) => {
         setDescription(e.target.value);
     };
 
-    // Handler for the tag input field
     const handleTagInput = (e) => {
         setTagInput(e.target.value);
     };
 
-    // Handler to add tags when a comma or Enter key is pressed
     const addTag = (e) => {
         if (e.key === 'Enter' || (e.key === ',' && tagInput.trim() !== '')) {
             e.preventDefault(); // Prevent form submission for Enter key
@@ -62,14 +55,7 @@ export default function NewPost() {
 
                 {/* Question Title Input */}
                 <div className="relative">
-                    <input
-                        onChange={handleQuestion}
-                        value={question} // Controlled component: bind input value to state
-                        maxLength={100} // Enforce max length for characters
-                        placeholder="Question title"
-                        className="focus:ring-2 focus:ring-blue-500 focus:outline-none p-3 transition-all duration-200 text-2xl font-bold w-full border border-gray-300 rounded-md"
-                        type="text"
-                    />
+                    <input onChange={handleQuestion} type="text" value={question} maxLength={100} placeholder="Question title" className="focus:ring-2 focus:ring-blue-500 focus:outline-none p-3 transition-all duration-200 text-2xl font-bold w-full border border-gray-300 rounded-md" />
                     <span className="absolute bottom-1 right-2 text-sm text-gray-500">
                         {`${question.length} / 100 characters ; ${qWordCount} word(s)`}
                     </span>
