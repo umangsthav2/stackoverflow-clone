@@ -47,7 +47,6 @@ export default function Header() {
       <nav className='flex text-center sm:flex-row flex-col w-full sm:w-auto'>
         <NavLink className='p-3' to="/" >Home</NavLink>
         <NavLink className='p-3' to="/questions">Questions</NavLink>
-        <NavLink className='p-3' to="/tags">Tags</NavLink>
         <NavLink className='p-3' to="/users">Users</NavLink>
       </nav>
 
